@@ -7,9 +7,13 @@ else:
     #Reading arguments
     json_file_path = sys.argv[1]
     csv_file_path = sys.argv[2]
-
+    
+    #checking if the output has extension with it
+    if ".csv" not in csv_file_path:
+        csv_file_path = csv_file_path+".csv"
+        
     df = pd.read_json(json_file_path)
     #df = pd.read_json(json_file_path, orient='index')
     df.to_csv(csv_file_path, index = None, header=True)
 
-    print ("File CSV created"):
+    print ("File CSV created")
